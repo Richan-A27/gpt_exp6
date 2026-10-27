@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI-Powered Medical Symptom Assistant | GPT-4</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="app-container">
+    <!-- TOP HEADER -->
+    <header class="app-header">
+      <div class="header-left">
+        <span class="medical-badge">💙</span>
+        <div>
+          <span class="sub-header-tag">24CS2306 • EXPERIMENT 6</span>
+          <h1 class="header-title">AI-Powered Medical Symptom Assistant</h1>
+        </div>
+      </div>
+      <div class="header-right">
+        <span class="status-indicator">
+          <span class="dot"></span> Connected to gpt-4o-mini
+        </span>
+      </div>
+    </header>
+
+    <!-- QUICK VIVA PRESETS TOOLBAR -->
+    <div class="presets-toolbar">
+      <span class="presets-label">⚡ Quick Viva Presets:</span>
+      <button class="preset-btn active" onclick="loadPreset('respiratory')">🫁 Respiratory (Lab Example)</button>
+      <button class="preset-btn" onclick="loadPreset('headache')">🧠 Tension &amp; Migraine</button>
+      <button class="preset-btn btn-danger-subtle" onclick="loadPreset('emergency')">🚨 Emergency Red Flag</button>
+      <button class="preset-btn btn-outline" onclick="clearForm()">🧹 Clear</button>
+    </div>
+
+    <!-- MAIN TWO-COLUMN WORKFLOW -->
+    <div class="workspace-grid">
+      <!-- LEFT: INTAKE FORM -->
+      <section class="card intake-card">
+        <div class="card-head">
+          <h2 class="card-heading">Patient Intake &amp; Clinical Context</h2>
+          <p class="card-caption">Enter patient information and describe symptoms in natural language</p>
+        </div>
+
+        <div class="form-group">
+          <label for="symptoms-input">Natural Language Symptom Description *</label>
+          <p class="field-hint">A user does not have to enter symptoms in a fixed format. Describe symptoms freely in natural conversational language:</p>
+          <textarea id="symptoms-input" class="form-control" rows="4" placeholder="Describe symptoms freely...">I've had a fever and cough since yesterday. I also feel tired, have a mild headache, and have a sore throat when swallowing.</textarea>
+        </div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="patient-age">Age *</label>
+            <input type="number" id="patient-age" class="form-control" value="22" min="1" max="120">
+          </div>
+          <div class="form-group">
+            <label for="patient-sex">Sex</label>
+            <select id="patient-sex" class="form-control">
+              <option value="Male" selected>Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="symptom-duration">Duration *</label>
+            <input type="text" id="symptom-duration" class="form-control" value="2 days" placeholder="e.g. 2 days, 1 week">
+          </div>
+          <div class="form-group">
+            <label>Reported Severity *</label>
+            <div class="severity-btn-group">
+              <button type="button" class="btn-sev" onclick="setSeverity('Mild', this)">Mild</button>
+              <button type="button" class="btn-sev active" onclick="setSeverity('Moderate', this)">Moderate</button>
+              <button type="button" class="btn-sev" onclick="setSeverity('Severe', this)">Severe</button>
+            </div>
+            <input type="hidden" id="patient-severity" value="Moderate">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="patient-history">Previous Medical Conditions</label>
+          <input type="text" id="patient-history" class="form-control" value="None" placeholder="e.g. Asthma, Diabetes, or None">
+        </div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="patient-meds">Current Medications</label>
+            <input type="text" id="patient-meds" class="form-control" value="None">
+          </div>
+          <div class="form-group">
+            <label for="patient-allergies">Known Allergies</label>
+            <input type="text" id="patient-allergies" class="form-control" value="None">
+          </div>
+        </div>
+
+        <button id="btn-submit-analysis" class="btn btn-primary btn-block" onclick="runAnalysis()">
+          ✨ Analyze Symptoms with GPT-4
+        </button>
+
+        <div class="footer-pipeline-note">
+          SYSTEM WORKFLOW PIPELINE (PAGES 2-4)
+        </div>
+      </section>
+
+      <!-- RIGHT: ANALYSIS REPORT -->
+      <section class="card results-card">
+        <!-- EMPTY STATE -->
+        <div id="empty-state" class="empty-state">
+          <div class="empty-icon">🩺</div>
+          <h3 class="empty-title">Structured Symptom Analysis</h3>
+          <p class="empty-desc">
+            Complete the patient intake form on the left or click one of the quick viva presets to initiate the clinical symptom analysis pipeline.
+          </p>
+          <div class="sample-prompt-box">
+            <div class="sample-prompt-label">EXAMPLE INPUT FROM LAB SHEET:</div>
+            <em>"I have a sore throat, mild fever and cough."</em>
+          </div>
+        </div>
+
+        <!-- GENERATED REPORT VIEW -->
+        <div id="report-view" class="report-view" style="display: none;">
+          <!-- REPORT HEADER TOOLBAR -->
+          <div class="report-header-bar">
+            <div class="report-meta">
+              <span class="report-badge-label">CLINICAL REPORT</span>
+              <span id="report-id-text" class="report-id">#24929018_205551, acd613</span>
+              <span class="engine-badge">Clinical Diagnostic Rule Engine (Viva Fallback)</span>
+            </div>
+            <div class="report-actions">
+              <button class="btn-chip" onclick="copyReportText()">📋 Copy</button>
+              <button class="btn-chip" onclick="downloadFile('txt')">📄 TXT</button>
+              <button class="btn-chip" onclick="downloadFile('json')">📦 JSON</button>
+              <button class="btn-chip" onclick="window.print()">🖨️ Print</button>
+            </div>
+          </div>
+
+          <!-- TRIAGE BANNER -->
+          <div id="triage-banner" class="triage-banner triage-moderate">
+            <div class="triage-title" id="triage-level-text">TRIAGE LEVEL: MODERATE</div>
+            <div class="triage-subtext" id="triage-sub-text">Routine Consultation / Monitored Self-Care</div>
+          </div>
+
+          <!-- MEDICAL SYMPTOM ANALYSIS -->
+          <div class="analysis-section-block">
+            <h3 class="analysis-main-title">MEDICAL SYMPTOM ANALYSIS</h3>
+
+            <!-- REPORTED SYMPTOMS -->
+            <div class="field-block">
+              <div class="field-label-bold">Reported Symptoms:</div>
+              <ul id="reported-symptoms-list" class="clinical-bullet-list">
+                <!-- Dynamically populated -->
+              </ul>
+            </div>
+
+            <!-- DURATION -->
+            <div class="field-block">
+              <div class="field-label-bold">Duration:</div>
+              <div id="display-duration" class="field-value-text">2 days</div>
+            </div>
+
+            <!-- POSSIBLE CONDITIONS -->
+            <div class="field-block">
+              <div class="field-label-bold">Possible Conditions:</div>
+              <ol id="conditions-list" class="conditions-ordered-list">
+                <!-- Dynamically populated -->
+              </ol>
+            </div>
+
+            <!-- WHY THESE WERE CONSIDERED -->
+            <div class="field-block">
+              <div class="field-label-bold">Why These Were Considered:</div>
+              <p id="why-considered-text" class="clinical-paragraph">
+                The reported symptoms can occur with several respiratory conditions. Fever, sore throat, and cough are characteristic manifestations of viral infections affecting the upper respiratory tract. These symptoms alone are not sufficient to establish a diagnosis.
+              </p>
+            </div>
+
+            <!-- ADDITIONAL INFORMATION NEEDED -->
+            <div class="field-block">
+              <div class="field-label-bold">Additional Information Needed:</div>
+              <ul id="additional-info-list" class="clinical-bullet-list">
+                <!-- Dynamically populated -->
+              </ul>
+            </div>
+
+            <!-- MEDICAL ATTENTION GUIDANCE -->
+            <div class="medical-attention-card">
+              <div class="med-att-title">Medical Attention:</div>
+              <p id="medical-attention-text" class="med-att-p">
+                Seek professional medical evaluation if symptoms are severe, worsening or concerning, or if high fever persists beyond 3 days.
+              </p>
+            </div>
+
+            <!-- DISCLAIMER -->
+            <div class="disclaimer-banner">
+              <strong>Disclaimer:</strong> This is an informational analysis and not a medical diagnosis.
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer class="app-footer">
+      <p>AI-Powered Medical Symptom Assistant | Ex. No: 6 | URK23CS1086</p>
+    </footer>
+  </div>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

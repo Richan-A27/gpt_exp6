@@ -1,0 +1,505 @@
+:root {
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --bg-page: #f8fafc;
+  --bg-card: #ffffff;
+  --border: #e2e8f0;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --radius: 10px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  padding: 20px 16px;
+  line-height: 1.5;
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.medical-badge {
+  font-size: 2rem;
+}
+
+.sub-header-tag {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #3b82f6;
+  letter-spacing: 0.05em;
+}
+
+.header-title {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.status-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #059669;
+  background-color: #ecfdf5;
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid #a7f3d0;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #10b981;
+}
+
+.presets-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+
+.presets-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #475569;
+}
+
+.preset-btn {
+  background-color: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.preset-btn:hover {
+  background-color: #e2e8f0;
+}
+
+.preset-btn.active {
+  background-color: #dbeafe;
+  border-color: #3b82f6;
+  color: #1e40af;
+}
+
+.btn-danger-subtle {
+  background-color: #fee2e2;
+  border-color: #fca5a5;
+  color: #991b1b;
+}
+
+.btn-danger-subtle:hover {
+  background-color: #fecaca;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px dashed #94a3b8;
+}
+
+.workspace-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 20px;
+}
+
+@media (max-width: 900px) {
+  .workspace-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.card-head {
+  margin-bottom: 16px;
+}
+
+.card-heading {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.card-caption {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.form-group {
+  margin-bottom: 14px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 4px;
+}
+
+.field-hint {
+  font-size: 0.78rem;
+  color: #64748b;
+  margin-bottom: 6px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 9px 12px;
+  font-size: 0.92rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-main);
+  background-color: #fff;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.severity-btn-group {
+  display: flex;
+  gap: 4px;
+}
+
+.btn-sev {
+  flex: 1;
+  padding: 8px 4px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  background-color: #f8fafc;
+  color: #475569;
+  cursor: pointer;
+}
+
+.btn-sev.active {
+  background-color: #2563eb;
+  color: white;
+  border-color: #2563eb;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 11px 18px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+}
+
+.btn-block {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.footer-pipeline-note {
+  text-align: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #94a3b8;
+  letter-spacing: 0.05em;
+  margin-top: 16px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.empty-icon {
+  font-size: 3rem;
+  color: #3b82f6;
+  margin-bottom: 12px;
+}
+
+.empty-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.empty-desc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  max-width: 380px;
+  margin: 8px auto 20px auto;
+}
+
+.sample-prompt-box {
+  background-color: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  color: #475569;
+  display: inline-block;
+}
+
+.sample-prompt-label {
+  font-weight: 700;
+  font-size: 0.72rem;
+  color: #2563eb;
+  margin-bottom: 2px;
+}
+
+.report-header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.report-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.report-badge-label {
+  font-size: 0.72rem;
+  font-weight: 800;
+  background-color: #e2e8f0;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.report-id {
+  font-size: 0.78rem;
+  font-family: monospace;
+  color: #64748b;
+}
+
+.engine-badge {
+  font-size: 0.72rem;
+  color: #2563eb;
+  background: #eff6ff;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.report-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.btn-chip {
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  background-color: #f8fafc;
+  cursor: pointer;
+}
+
+.btn-chip:hover {
+  background-color: #e2e8f0;
+}
+
+.triage-banner {
+  padding: 12px 16px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+
+.triage-moderate {
+  background-color: #fef3c7;
+  border-left: 4px solid #f59e0b;
+}
+
+.triage-emergency {
+  background-color: #fee2e2;
+  border-left: 4px solid #ef4444;
+}
+
+.triage-low {
+  background-color: #ecfdf5;
+  border-left: 4px solid #10b981;
+}
+
+.triage-title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #92400e;
+}
+
+.triage-emergency .triage-title {
+  color: #991b1b;
+}
+
+.triage-low .triage-title {
+  color: #065f46;
+}
+
+.triage-subtext {
+  font-size: 0.85rem;
+  color: #78350f;
+  margin-top: 2px;
+}
+
+.analysis-main-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: 0.05em;
+  margin-bottom: 14px;
+}
+
+.field-block {
+  margin-bottom: 14px;
+}
+
+.field-label-bold {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 4px;
+}
+
+.clinical-bullet-list {
+  list-style: none;
+  font-size: 0.9rem;
+  color: #334155;
+}
+
+.clinical-bullet-list li {
+  margin-bottom: 3px;
+  padding-left: 14px;
+  position: relative;
+}
+
+.clinical-bullet-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #2563eb;
+  font-weight: bold;
+}
+
+.field-value-text {
+  font-size: 0.9rem;
+  color: #334155;
+}
+
+.conditions-ordered-list {
+  padding-left: 20px;
+  font-size: 0.9rem;
+  color: #1e293b;
+}
+
+.condition-item-heading {
+  font-weight: 700;
+}
+
+.condition-item-desc {
+  font-size: 0.82rem;
+  color: #64748b;
+  margin-bottom: 6px;
+}
+
+.clinical-paragraph {
+  font-size: 0.88rem;
+  color: #334155;
+  line-height: 1.55;
+}
+
+.medical-attention-card {
+  background-color: #fffbeb;
+  border: 1px solid #fef3c7;
+  border-left: 3px solid #f59e0b;
+  padding: 12px 14px;
+  border-radius: 0 6px 6px 0;
+  margin-top: 14px;
+  margin-bottom: 14px;
+}
+
+.med-att-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #b45309;
+  margin-bottom: 4px;
+}
+
+.med-att-p {
+  font-size: 0.85rem;
+  color: #78350f;
+  line-height: 1.45;
+}
+
+.disclaimer-banner {
+  font-size: 0.78rem;
+  color: #64748b;
+  border-top: 1px solid var(--border);
+  padding-top: 10px;
+  margin-top: 14px;
+  font-style: italic;
+}
+
+.app-footer {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 25px;
+}

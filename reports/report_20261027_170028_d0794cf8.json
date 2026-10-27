@@ -1,0 +1,55 @@
+{
+  "report_id": "d0794cf8",
+  "generated_at": "2026-10-27 17:00:28",
+  "engine": "Clinical Diagnostic Rule Engine (Viva Fallback / GPT-4 Pipeline)",
+  "patient": {
+    "age": 22,
+    "sex": "Male",
+    "symptoms_raw": "I've had a fever and cough since yesterday. I also feel tired, have a mild headache, and have a sore throat when swallowing.",
+    "duration": "2 days",
+    "severity": "Moderate",
+    "medical_history": "None",
+    "medication": "None",
+    "allergies": "None",
+    "additional_info": ""
+  },
+  "extracted_symptoms": [
+    "Sore throat",
+    "Fever",
+    "Cough",
+    "Mild headache",
+    "Fatigue / tiredness"
+  ],
+  "triage": {
+    "level": "MODERATE",
+    "label": "MODERATE - Routine Consultation / Monitored Self-Care",
+    "color": "moderate",
+    "is_emergency": false,
+    "urgency_rationale": "Symptoms are consistent with moderate acute presentation. Monitor closely and schedule consultation if persistent."
+  },
+  "clinical_analysis": {
+    "possible_conditions": [
+      {
+        "name": "Common cold",
+        "description": "Upper respiratory tract infection typically caused by rhinoviruses."
+      },
+      {
+        "name": "Viral pharyngitis",
+        "description": "Inflammation of the pharynx commonly associated with upper respiratory viral illness."
+      },
+      {
+        "name": "Influenza (Flu)",
+        "description": "Acute respiratory infection characterized by fever, headache, cough, and fatigue."
+      }
+    ],
+    "why_considered": "The reported symptoms can occur with several respiratory conditions. Fever, sore throat, and cough are characteristic manifestations of viral infections affecting the upper respiratory tract. These symptoms alone are not sufficient to establish a diagnosis.",
+    "additional_information_needed": [
+      "Exact temperature reading",
+      "Severity of symptoms",
+      "Breathing difficulty",
+      "Other associated symptoms (e.g. ear pain, chills, body aches)"
+    ],
+    "medical_attention": "Seek professional medical evaluation if symptoms are severe, worsening or concerning, or if high fever persists beyond 3 days.",
+    "disclaimer": "Disclaimer: This is an informational analysis and not a medical diagnosis."
+  }
+}

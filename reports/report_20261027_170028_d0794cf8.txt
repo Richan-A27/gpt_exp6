@@ -1,0 +1,38 @@
+============================================================
+CLINICAL MEDICAL SYMPTOM ANALYSIS REPORT
+Report ID: #d0794cf8
+Generated At: 2026-10-27 17:00:28
+============================================================
+
+Patient Age: 22 | Sex: Male
+Duration: 2 days | Severity: Moderate
+Chief Complaints: I've had a fever and cough since yesterday. I also feel tired, have a mild headache, and have a sore throat when swallowing.
+
+TRIAGE ASSESSMENT: MODERATE - Routine Consultation / Monitored Self-Care
+
+REPORTED SYMPTOMS:
+  • Sore throat
+  • Fever
+  • Cough
+  • Mild headache
+  • Fatigue / tiredness
+
+POSSIBLE CONDITIONS:
+  1. Common cold: Upper respiratory tract infection typically caused by rhinoviruses.
+  2. Viral pharyngitis: Inflammation of the pharynx commonly associated with upper respiratory viral illness.
+  3. Influenza (Flu): Acute respiratory infection characterized by fever, headache, cough, and fatigue.
+
+WHY THESE WERE CONSIDERED:
+The reported symptoms can occur with several respiratory conditions. Fever, sore throat, and cough are characteristic manifestations of viral infections affecting the upper respiratory tract. These symptoms alone are not sufficient to establish a diagnosis.
+
+ADDITIONAL INFORMATION NEEDED:
+  * Exact temperature reading
+  * Severity of symptoms
+  * Breathing difficulty
+  * Other associated symptoms (e.g. ear pain, chills, body aches)
+
+MEDICAL ATTENTION GUIDANCE:
+Seek professional medical evaluation if symptoms are severe, worsening or concerning, or if high fever persists beyond 3 days.
+
+Disclaimer: This is an informational analysis and not a medical diagnosis.
+============================================================

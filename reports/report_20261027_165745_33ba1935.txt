@@ -1,0 +1,37 @@
+============================================================
+CLINICAL MEDICAL SYMPTOM ANALYSIS REPORT
+Report ID: #33ba1935
+Generated At: 2026-10-27 16:57:45
+============================================================
+
+Patient Age: 22 | Sex: Male
+Duration: 2 days | Severity: Moderate
+Chief Complaints: I've had a fever and cough since yesterday. I also feel tired, have a mild headache, and have a sore throat when swallowing.
+
+TRIAGE ASSESSMENT: MODERATE - Routine Consultation / Monitored Self-Care
+
+REPORTED SYMPTOMS:
+  • Sore throat
+  • Fever
+  • Cough
+  • Mild headache
+  • Fatigue / tiredness
+
+POSSIBLE CONDITIONS:
+  1. Tension-type headache: Most common primary headache disorder, presenting as dull, bilateral pressure or tightness.
+  2. Migraine without aura: Recurrent neurovascular headache disorder often moderate-to-severe, unilateral, or throbbing.
+  3. Cervicogenic headache: Referred pain from cervical spine musculature and neck fatigue.
+
+WHY THESE WERE CONSIDERED:
+Reported head discomfort, duration, and intensity match benign primary headache patterns, though focal neurological signs must be ruled out.
+
+ADDITIONAL INFORMATION NEEDED:
+  * Is the pain throbbing, sharp, or a dull tight band around your head?
+  * Do bright lights or loud sounds worsen your headache?
+  * Have you experienced any visual changes, numbness, or tingling?
+
+MEDICAL ATTENTION GUIDANCE:
+Seek medical evaluation if headaches increase in frequency, fail to respond to standard analgesics, or present with sudden thunderclap onset.
+
+Disclaimer: This is an informational analysis and not a medical diagnosis.
+============================================================
